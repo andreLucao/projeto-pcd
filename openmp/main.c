@@ -35,7 +35,7 @@ static int count_rows(const char *path){
 static double *read_csv_1col(const char *path, int *n_out){
     int R = count_rows(path);
     if(R<=0){ fprintf(stderr,"Arquivo vazio: %s\n", path); exit(1); }
-    double A = (double)malloc((size_t)R * sizeof(double));
+    double *A = (double*)malloc((size_t)R * sizeof(double));
     if(!A){ fprintf(stderr,"Sem memoria para %d linhas\n", R); exit(1); }
 
     FILE *f = fopen(path, "r");
@@ -104,14 +104,14 @@ static double assignment_step_1d_omp(const double *X, const double *C, int *assi
 /* update: média dos pontos de cada cluster (1D) (paralelo)
    se cluster vazio, copia X[0] (estratégia igual ao naive) */
 static void update_step_1d_omp(const double *X, double *C, const int *assign, int N, int K){
-    double sum = (double)calloc((size_t)K, sizeof(double));
-    int cnt    = (int)calloc((size_t)K, sizeof(int));
+    double *sum = (double*)calloc((size_t)K, sizeof(double));
+    int *cnt    = (int*)calloc((size_t)K, sizeof(int));
     if(!sum || !cnt){ fprintf(stderr,"Sem memoria no update\n"); exit(1); }
 
     #pragma omp parallel
     {
-        double sum_local = (double)calloc((size_t)K, sizeof(double));
-        int    cnt_local = (int)calloc((size_t)K, sizeof(int));
+        double *sum_local = (double*)calloc((size_t)K, sizeof(double));
+        int    *cnt_local = (int*)calloc((size_t)K, sizeof(int));
         if(!sum_local || !cnt_local){ fprintf(stderr,"Sem memoria local no update\n"); exit(1); }
 
         #pragma omp for schedule(static)
@@ -165,12 +165,13 @@ int main(int argc, char **argv){
         printf("Obs: arquivos CSV com 1 coluna (1 valor por linha), sem cabeçalho.\n");
         return 1;
     }
+
     const char *pathX = argv[1];
     const char *pathC = argv[2];
     int max_iter = (argc>3)? atoi(argv[3]) : 50;
     double eps   = (argc>4)? atof(argv[4]) : 1e-4;
-    const char *outAssign   = (argc>5)? argv[5] : NULL;
-    const char *outCentroid = (argc>6)? argv[6] : NULL;
+    const char *outAssign   = (argc>5)? argv[5] : "resultados/assign.csv";
+    const char *outCentroid = (argc>6)? argv[6] : "resultados/centroids.csv";
 
     if(max_iter <= 0 || eps <= 0.0){
         fprintf(stderr,"Parâmetros inválidos: max_iter>0 e eps>0\n");
@@ -180,7 +181,7 @@ int main(int argc, char **argv){
     int N=0, K=0;
     double *X = read_csv_1col(pathX, &N);
     double *C = read_csv_1col(pathC, &K);
-    int assign = (int)malloc((size_t)N * sizeof(int));
+    int *assign = (int*)malloc((size_t)N * sizeof(int));
     if(!assign){ fprintf(stderr,"Sem memoria para assign\n"); free(X); free(C); return 1; }
 
     double t0 = omp_get_wtime();
