@@ -1,0 +1,19 @@
+K-means 1D (OpenMP)
+N=1000000 K=16 max_iter=50 eps=0.0001
+Iterações: 2 | SSE final: 998292.565856 | Tempo: 3.1 ms
+lucaandrade@Lucas-MacBook-Air projeto-pcd % cd /Users/lucaandrade/Desktop/projeto-pcd/openmp && clang -O2 -Xpreprocessor -fopenmp -I/opt/homebrew/opt/libomp/include -L/opt/homebrew/opt/libomp/lib -lomp -std=c99 main.c -o main -lm && cd .. && OMP_NUM_THREADS=4 ./openmp/main ./dados/dados_grande.csv ./dados/centroides_iniciais_k16.csv
+K-means 1D (OpenMP)
+N=1000000 K=16 max_iter=50 eps=0.0001
+Iterações: 2 | SSE final: 998292.565856 | Tempo: 3.5 ms
+lucaandrade@Lucas-MacBook-Air projeto-pcd % cd /Users/lucaandrade/Desktop/projeto-pcd/openmp && clang -O2 -Xpreprocessor -fopenmp -I/opt/homebrew/opt/libomp/include -L/opt/homebrew/opt/libomp/lib -lomp -std=c99 main.c -o main -lm && cd .. && OMP_NUM_THREADS=4 ./openmp/main ./dados/dados_grande.csv ./dados/centroides_iniciais_k16.csv
+K-means 1D (OpenMP)
+N=1000000 K=16 max_iter=50 eps=0.0001
+Iterações: 2 | SSE final: 998292.565856 | Tempo: 3.3 ms
+lucaandrade@Lucas-MacBook-Air projeto-pcd % cd /Users/lucaandrade/Desktop/projeto-pcd/openmp && clang -O2 -Xpreprocessor -fopenmp -I/opt/homebrew/opt/libomp/include -L/opt/homebrew/opt/libomp/lib -lomp -std=c99 main.c -o main -lm && cd .. && OMP_NUM_THREADS=4 ./openmp/main ./dados/dados_grande.csv ./dados/centroides_iniciais_k16.csv
+K-means 1D (OpenMP)
+N=1000000 K=16 max_iter=50 eps=0.0001
+Iterações: 2 | SSE final: 998292.565856 | Tempo: 3.0 ms
+lucaandrade@Lucas-MacBook-Air projeto-pcd % cd /Users/lucaandrade/Desktop/projeto-pcd/openmp && clang -O2 -Xpreprocessor -fopenmp -I/opt/homebrew/opt/libomp/include -L/opt/homebrew/opt/libomp/lib -lomp -std=c99 main.c -o main -lm && cd .. && OMP_NUM_THREADS=4 ./openmp/main ./dados/dados_grande.csv ./dados/centroides_iniciais_k16.csv
+K-means 1D (OpenMP)
+N=1000000 K=16 max_iter=50 eps=0.0001
+Iterações: 2 | SSE final: 998292.565856 | Tempo: 3.2 ms

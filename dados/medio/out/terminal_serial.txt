@@ -1,0 +1,21 @@
+cd /Users/lucaandrade/Desktop/projeto-pcd/serial && gcc -O2 -std=c99 main.c -o main -lm && ./main ../dados/centroides_iniciais.csv
+K-means 1D (naive)
+N=100000 K=8 max_iter=50 eps=0.0001
+Iterações: 2 | SSE final: 100888.564918 | Tempo: 0.552000 ms
+lucaandrade@Lucas-MacBook-Air serial % cd /Users/lucaandrade/Desktop/projeto-pcd/serial && gcc -O2 -std=c99 main.c -o main -lm && ./main ../dados/centroides_iniciais.csv
+K-means 1D (naive)
+N=100000 K=8 max_iter=50 eps=0.0001
+Iterações: 2 | SSE final: 100888.564918 | Tempo: 0.544000 ms
+lucaandrade@Lucas-MacBook-Air serial % cd /Users/lucaandrade/Desktop/projeto-pcd/serial && gcc -O2 -std=c99 main.c -o main -lm && ./main ../dados/centroides_iniciais.csv
+K-means 1D (naive)
+N=100000 K=8 max_iter=50 eps=0.0001
+Iterações: 2 | SSE final: 100888.564918 | Tempo: 1.040000 ms
+lucaandrade@Lucas-MacBook-Air serial % cd /Users/lucaandrade/Desktop/projeto-pcd/serial && gcc -O2 -std=c99 main.c -o main -lm && ./main ../dados/centroides_iniciais.csv
+K-means 1D (naive)
+N=100000 K=8 max_iter=50 eps=0.0001
+Iterações: 2 | SSE final: 100888.564918 | Tempo: 1.062000 ms
+lucaandrade@Lucas-MacBook-Air serial % cd /Users/lucaandrade/Desktop/projeto-pcd/serial && gcc -O2 -std=c99 main.c -o main -lm && ./main ../dados/centroides_iniciais.csv
+K-means 1D (naive)
+N=100000 K=8 max_iter=50 eps=0.0001
+Iterações: 2 | SSE final: 100888.564918 | Tempo: 1.065000 ms
+lucaandrade@Lucas-MacBook-Air serial %
